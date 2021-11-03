@@ -114,7 +114,7 @@ for file in models_in:
     rich_media = rich_media_no_exp_source_df
     code_list = []
 
-    for ingredient in main_cofactors_grouped:
+    for ingredient in explored_nutrients:
         code_list.append(ingredient)
 
     for r in range(0, len(code_list) + 1):
@@ -125,7 +125,7 @@ for file in models_in:
             grouped = {}
 
             for group in combination:
-                grouped.update(main_cofactors_grouped[group])
+                grouped.update(explored_nutrients[group])
 
             list_of_reactions = []
 
