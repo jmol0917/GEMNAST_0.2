@@ -9,11 +9,7 @@ Universally Defined Media (UDM).
 The components of both, UDM media and the list of nutrients to be tested, should be specified as
 dictionaries below. 
 
-It has been expanded to work with other nutrient dimensions; minor adjustments are needed.
-
-Follow comments to run this either on a personal computer or on the HPC. For this script to run on the HPC, the 
-count_files.sh document will be needed. After uploading count_files to the HPC it has to be converted to unix with the
-'dos2unix count_files.sh' command. Submit a job as any other regular job using the './count_files.sh' command.
+It has been expanded to work with other nutrient dimensions.
 """
 
 import cobra
@@ -88,6 +84,7 @@ rich_media_no_exp_source.update(bile_acids)
 rich_media_no_exp_source.update(fatty_acids)
 rich_media_no_exp_source.update(dipeptide)
 rich_media_no_exp_source.update(secondary_cofactors)
+rich_media_no_exp_source.update(main_cofactors)
 rich_media_no_exp_source.update(metals)
 rich_media_no_exp_source.update(anions)
 rich_media_no_exp_source.update(cations)
