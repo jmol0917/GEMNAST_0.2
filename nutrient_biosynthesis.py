@@ -86,7 +86,7 @@ rich_media_no_explored_n.update(cations)
 explored_groups = {
 
     # Example
-    'B1': {'thiamine': "EX_thm(e)", 'thiamine monophosphate': "EX_thmmp(e)"},
+    'B1': {'thiamine': "thm", 'thiamine monophosphate': "thmmp"},
 
 }
 
@@ -134,7 +134,7 @@ for name in models_in:
 
         for metabolite in group_of_reactions:
             reaction = group_of_reactions[metabolite]
-            explored_metabolite = reaction[3:-3] + '[c]'
+            explored_metabolite = reaction + '[c]'
             with model:
                 medium = model.medium
 
