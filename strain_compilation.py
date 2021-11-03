@@ -19,11 +19,8 @@ from scipy.stats import pearsonr
 from scipy.stats import spearmanr
 from sklearn.linear_model import LinearRegression
 
-# rename this variable based on the dimension being assessed
-dimension = ''
-
 # Input (directory where individual strain files are saved) and Output directory (where Boolean table will be saved)
-path_out = '' + dimension
+path_out = ''
 
 # makes a list of models/microbes that are in the consumption folder (models generated in script 1)
 # this avoids any errors if for some reason an output file wasn't generated while running script 1
