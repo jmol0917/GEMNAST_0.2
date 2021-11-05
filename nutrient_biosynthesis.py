@@ -149,8 +149,6 @@ for name in models_in:
                         constraint = model.problem.Constraint(
                             model.reactions.get_by_id(reaction + '[c]').flux_expression, lb=0.001, ub=50)
                         model.add_cons_vars(constraint)
-                    # the try/catch loop shouldn't be nested in the if statement, there are some microbes that can
-                    # synthesise a vitamin but don't have the export reaction that I use to constrain them above
                     try:
                         solution = model.optimize()
                         if solution.objective_value is not None and solution.objective_value > 0.09 and \
