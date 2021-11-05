@@ -147,7 +147,7 @@ for name in models_in:
                     if reaction in model.reactions:
                         # print(model, reaction)
                         constraint = model.problem.Constraint(
-                            model.reactions.get_by_id(reaction).flux_expression, lb=0.001, ub=50)
+                            model.reactions.get_by_id(reaction + '[c]').flux_expression, lb=0.001, ub=50)
                         model.add_cons_vars(constraint)
                     # the try/catch loop shouldn't be nested in the if statement, there are some microbes that can
                     # synthesise a vitamin but don't have the export reaction that I use to constrain them above
