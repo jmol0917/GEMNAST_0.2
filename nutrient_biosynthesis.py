@@ -125,8 +125,9 @@ for name in models_in:
         # remove reactions that belong to the same group from the media above
         for metabolite in group_of_reactions:
             reaction = group_of_reactions[metabolite]
-            if reaction in uptakes:
-                del uptakes[reaction]
+            ex_reaction = 'EX_' + reaction + '(e)'
+            if ex_reaction in uptakes:
+                del uptakes[ex_reaction]
 
         # value is out of the lower loop, so if value changes for one of the reactions in the current group it
         # conserves a value of 1 even if the later reactions in the group don't return a positive outcome.
