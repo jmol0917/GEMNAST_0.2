@@ -39,11 +39,3 @@ for model in model_names:
 
 # Growth compilation table
 final_compilation_table_growth.to_csv(path_out + 'compilation/growth_compilation.csv')
-sns.set(font_scale=0.25)
-fig1 = sns.clustermap(final_compilation_table_growth, cmap="YlGnBu", cbar_pos=None, col_cluster=False,
-                      figsize=(60, 160), dendrogram_ratio=(.01, .02))
-fig1.savefig(path_out + '/Graphs/growth_compilation.jpeg', pil_kwargs={'optimize': True})
-reordered_index = fig1.dendrogram_row.reordered_ind
-reordered = fig1.data2d
-reordered.insert(0, 'Original_Index', reordered_index, True)
-reordered.to_csv(path_out + 'compilation/growth_compilation_reordered.csv')
