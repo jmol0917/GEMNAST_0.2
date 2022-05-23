@@ -166,61 +166,6 @@ for name in models_in:
 
 production_boolean_table.to_csv(path_out + output_folder + 'compilation/synthesis_compilation.csv')
 
-g = sns.clustermap(production_boolean_table, cmap="YlGnBu", cbar_pos=None, col_cluster=False, figsize=(75, 200),
-                   dendrogram_ratio=(.1, .2))
-g.savefig(path_out + output_folder + 'graphs/synthesis_compilation.jpeg')
-
-reordered = g.data2d
-reordered.to_csv(path_out + output_folder + 'compilation/synthesis_compilation_reordered.csv')
-
-outcome_dict = {}
-
-for index, row in enumerate(reordered.iterrows()):
-    microbe = row[0]
-    outcome_list = []
-    for number in range(len(reordered.columns)):
-        result = reordered.iloc[index][reordered.columns[number]]
-        if result > 0:
-            product = reordered.columns[number]
-            outcome_list.append(product)
-        else:
-            outcome_list.append(0)
-    outcome_dict.update({microbe: outcome_list})
-
-outcome_table = pd.DataFrame.from_dict(outcome_dict, orient='index')
-outcome_table.columns = reordered.columns
-outcome_table.to_csv(
-    path_out + output_folder + 'compilation/synthesis_compilation_reordered_nutrient_name.csv')
-
-final_production_ruleset = {}
-
-for index, row in outcome_table.iterrows():
-    produced_nutrients = []
-    for value in row:
-        if value != 0 and value != '0':
-            produced_nutrients.append(value)
-    nutrient_set = ''
-    for nutrient in produced_nutrients:
-        nutrient_set = nutrient_set + nutrient + ','
-    nutrient_set = '(' + nutrient_set[:-1] + ')'
-    if nutrient_set not in final_production_ruleset:
-        final_production_ruleset.update({nutrient_set: [index]})
-    else:
-        final_production_ruleset[nutrient_set].append(index)
-
-with open(path_out + output_folder + 'cluster/production_by_nutrient_set.txt', 'w') as file:
-    for combination in final_production_ruleset:
-        inner_cluster = final_production_ruleset[combination]
-        line = combination + ': ' + str(inner_cluster) + '\n\n'
-        file.write(line)
-
-with open(path_out + output_folder + 'cluster/production_by_nutrient_set_len.txt', 'w') as file:
-    for combination in final_production_ruleset:
-        inner_cluster = final_production_ruleset[combination]
-        line = combination + ': ' + str(len(inner_cluster)) + '\n\n'
-        file.write(line)
-        line = '\n\n'
-
 with open(path_out + output_folder + 'cluster/_experimental_design.txt', 'w') as file:
     file.write('This results were generated using the nutrient_biosynthesis_aa_vit.py script')
     line = '\n\n'
