@@ -145,11 +145,6 @@ for name in models_in:
 
                 model.medium = medium
                 if explored_metabolite in model.metabolites:
-                    if reaction in model.reactions:
-                        # print(model, reaction)
-                        constraint = model.problem.Constraint(
-                            model.reactions.get_by_id(reaction + '[c]').flux_expression, lb=0.001, ub=50)
-                        model.add_cons_vars(constraint)
                     try:
                         solution = model.optimize()
                         if solution.objective_value is not None and solution.objective_value > 0.09 and \
@@ -158,12 +153,9 @@ for name in models_in:
                                 .summary().to_string()
                             if 'Empty DataFrame' not in metabolite_reactions:
                                 print(explored_metabolite, 'HAS BEEN used in one or more reactions')
-                                # print(metabolite_reactions)
                                 value = 1
                     except (UserWarning, OptimizationError):
                         value = 0
-                # else:
-                #     print(explored_metabolite, "CANNOT be processed by this microbe.")
 
         group_test = pd.DataFrame([value], index=[explored_group])
         group_test.columns = [name]
