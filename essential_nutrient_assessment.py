@@ -182,5 +182,8 @@ for file in models_in:
 
             solution = model.optimize()
 
-    #     Uncomment the line below to write one file per model to the directory specified on path_out
     final_boolean_table.to_csv(path_out + output_folder + 'consumption/growth_no-growth/' + file + '.csv')
+
+with open(path_out + output_folder + 'experimental_design.txt', 'w') as file:
+    file.write('This results were generated using the essential_nutrient_assessment.py script\n\n')
+    file.write('Using the following media:\n', str(rich_media_no_exp_source))
