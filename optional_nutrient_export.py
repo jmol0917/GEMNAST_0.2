@@ -4,10 +4,9 @@ on 26/03/2021
 """
 
 """
-This script assesses nutrient production from microbial GSMs in SBML format. Microbes in the set are 'forced' (nutrient 
-secretion is set as a constraint) to secrete a given nutrient (not present in the medium) 
-from a specified set of nutrients and clusters are divided into sub-clusters based on individual nutrient secretion 
-profile.
+This script assesses nutrient export from microbial GSMs in SBML format. Microbes in the set are 'forced' (nutrient 
+export is set as a constraint) to export a given nutrient (not present in the medium) 
+from a specified set of nutrients.
 """
 
 import cobra
@@ -155,6 +154,5 @@ for name in models_in:
 production_boolean_table.to_csv(path_out + output_folder + 'compilation/production_compilation.csv')
 
 with open(path_out + output_folder + 'cluster/_experimental_design.txt', 'w') as file:
-    file.write('This results were generated using the nutrient_secretion_aa_vit.py script')
-    line = '\n\n'
-    file.write(str(rich_media_no_explored_n))
+    file.write('This results were generated using the optional_nutrient_export.py script\n\n')
+    file.write('The media employed was the following:\n', str(rich_media_no_explored_n))
