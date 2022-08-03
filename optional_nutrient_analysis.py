@@ -147,10 +147,8 @@ for name in models_in:
                 if explored_metabolite in model.metabolites:
                     try:
                         solution = model.optimize()
-                        if solution.objective_value is not None and solution.objective_value > 0.09 and \
-                                solution.status != 'Infeasible':
-                            metabolite_reactions = model.metabolites.get_by_id(explored_metabolite)\
-                                .summary().to_string()
+                        if solution.objective_value is not None and solution.objective_value > 0.09 and solution.status != 'Infeasible':
+                            metabolite_reactions = model.metabolites.get_by_id(explored_metabolite).summary().to_string()
                             if 'Empty DataFrame' not in metabolite_reactions:
                                 print(explored_metabolite, 'HAS BEEN used in one or more reactions')
                                 value = 1
@@ -166,7 +164,7 @@ for name in models_in:
 
 production_boolean_table.to_csv(path_out + output_folder + 'compilation/synthesis_compilation.csv')
 
-with open(path_out + output_folder + 'cluster/_experimental_design.txt', 'w') as file:
+with open(path_out + output_folder + 'experimental_design.txt', 'w') as file:
     file.write('This results were generated using the nutrient_biosynthesis_aa_vit.py script')
     line = '\n\n'
     file.write(str(rich_media_no_explored_n))
