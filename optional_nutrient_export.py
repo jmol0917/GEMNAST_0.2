@@ -231,33 +231,33 @@ for name in models_in:
                         constraint = model.problem.Constraint(model.reactions.get_by_id(ch_reaction).flux_expression,
                                                               lb=-1000, ub=-0.0001)
                         model.add_cons_vars(constraint)
-                    if metabolite_reaction in model.reactions:
-                    #     molecule we constrain to be secreted
-                        constraint = model.problem.Constraint(model.reactions.get_by_id(metabolite_reaction).
-                                                              flux_expression, lb=0.000, ub=1000)
-                        model.add_cons_vars(constraint)
-                        try:
-                            solution = model.optimize()
-                            
-                            if solution.objective_value is not None and solution.objective_value > 0.09 and \
-                                    solution.status != 'Infeasible' \
-                                    and solution.fluxes[metabolite_reaction] > 0.0 \
-                                    and solution.fluxes[ch_reaction] < 0.0:
-             
-                                metabolite_reactions = model.metabolites.get_by_id(intracellular_metabolite)\
-                                    .summary().to_string()
-                                # print(metabolite_reactions)
-                                if 'Empty DataFrame' not in metabolite_reactions:
-                                    print(ch_reaction, intracellular_metabolite, 'HAS BEEN used in one or more reactions')
+                        if metabolite_reaction in model.reactions:
+                        #     molecule we constrain to be secreted
+                            constraint = model.problem.Constraint(model.reactions.get_by_id(metabolite_reaction).
+                                                                  flux_expression, lb=0.000, ub=1000)
+                            model.add_cons_vars(constraint)
+                            try:
+                                solution = model.optimize()
+
+                                if solution.objective_value is not None and solution.objective_value > 0.09 and \
+                                        solution.status != 'Infeasible' \
+                                        and solution.fluxes[metabolite_reaction] > 0.0 \
+                                        and solution.fluxes[ch_reaction] < 0.0:
+
+                                    metabolite_reactions = model.metabolites.get_by_id(intracellular_metabolite)\
+                                        .summary().to_string()
                                     # print(metabolite_reactions)
-                                    value = 1
-                                else:
-                                    value = 0
-                        except (UserWarning, Infeasible):
+                                    if 'Empty DataFrame' not in metabolite_reactions:
+                                        print(ch_reaction, intracellular_metabolite, 'HAS BEEN used in one or more reactions')
+                                        # print(metabolite_reactions)
+                                        value = 1
+                                    else:
+                                        value = 0
+                            except (UserWarning, Infeasible):
+                                value = 0
+                                print('error')
+                        else:
                             value = 0
-                            print('error')
-                    else:
-                        value = 0
                     production_test = pd.DataFrame([int(value)], index=[ch + ', ' + r])
                     production_test.columns = [name]
                     microbe_boolean_table = pd.concat([microbe_boolean_table, production_test])
