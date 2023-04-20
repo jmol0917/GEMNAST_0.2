@@ -9,20 +9,19 @@ export is set as a constraint) to export a given nutrient (not present in the me
 from a specified set of nutrients.
 """
 
-path_in = 'C:/Users/jpmo_/Dropbox (Sydney Uni)/gsm_analysis/sbml/'
-path_out = 'C:/Users/jpmo_/Dropbox (Sydney Uni)/gsm_analysis/results/AGORA/'
+path_in = ''
+path_out = ''
 
 """
 Create necessary paths if they don't exist already
 """
 
-output_folder = 'im_export/'
+output_folder = '/'
 
 if not os.path.exists(path_out + output_folder):
     os.makedirs(path_out + output_folder)
     os.makedirs(path_out + output_folder + 'compilation/')
-    os.makedirs(path_out + output_folder + 'graphs/')
-    os.makedirs(path_out + output_folder + 'clusters/')
+    
 
 # Dictionary with experimental energy sources
 # Simple sugars are not part of the experimental media in this case
@@ -168,106 +167,7 @@ rich_media_no_vit_k.update(anions)
 rich_media_no_vit_k.update(cations)
 
 explored_ch = {
-    # 'Core 2': 'EX_core2(e)',
-    # 'Core 3': 'EX_core3(e)',
-    # 'Core 4': 'EX_core4(e)',
-    # 'Core 5': 'EX_core5(e)',
-    # 'Core 6': 'EX_core6(e)',
-    # 'Core 7': 'EX_core7(e)',
-    # 'Core 8': 'EX_core8(e)',
-    # 'Chondroitin Sulfate A Proteoglycan': 'EX_cspg_a(e)',
-    # 'Dimer GalNAc4S-GlcA': 'EX_cspg_a_degr(e)',
-    # 'Chondroitin Sulfate B Proteoglycan': 'EX_cspg_b(e)',
-    # 'Dimer GalNAc4S-IdoA2S': 'EX_cspg_b_degr(e)',
-    # 'Chondroitin Sulfate C Proteoglycan': 'EX_cspg_c(e)',
-    # 'Dimer GalNAc6S-GlcA': 'EX_cspg_c_degr(e)',
-    # 'Disialyl-T Antigen': 'EX_dsT_antigen(e)',
-    # 'GlcNac-Alpha-1,4-Core 1': 'EX_gncore1(e)',
-    # 'GlcNac-Alpha-1,4-Core 2': 'EX_gncore2(e)',
-    # 'Hyaluronic acid': 'EX_ha(e)',
-    # 'Heparan Sulfate Proteoglycan': 'EX_hspg(e)',
-    # 'Product 1 HEPARL1_e': 'EX_hspg_degr_1(e)',
-    # 'Product AS3TASE_HS2': 'EX_hspg_degr_10(e)',
-    # 'Product GAM2STASE_HS3': 'EX_hspg_degr_11(e)',
-    # 'Product GLCNACASE_HS2': 'EX_hspg_degr_12(e)',
-    # 'Product GLCAASE_HS': 'EX_hspg_degr_13(e)',
-    # 'Product GLCNACASE_HS3': 'EX_hspg_degr_14(e)',
-    # 'Product IDOURASE_HS3': 'EX_hspg_degr_15(e)',
-    # 'Product 2 HEPARL1_e': 'EX_hspg_degr_2(e)',
-    # 'Product IDOURASE_HS1': 'EX_hspg_degr_3(e)',
-    # 'Product AS6TASE_HS1': 'EX_hspg_degr_4(e)',
-    # 'Product AS3TASE_HS1': 'EX_hspg_degr_5(e)',
-    # 'Product GAM2STASE_HS2': 'EX_hspg_degr_6(e)',
-    # 'Product IS2TASE_HS1': 'EX_hspg_degr_7(e)',
-    # 'Product IDOURASE_HS2': 'EX_hspg_degr_8(e)',
-    # 'Product AS6TASE_HS2': 'EX_hspg_degr_9(e)',
-    # 'Sialyl-T Antigen': 'EX_sT_antigen(e)',
-    # 'Sialyl-Tn Antigen': 'EX_sTn_antigen(e)',
-    # 'T-Antigen (Core 1)': 'EX_T_antigen(e)',
-    # 'Tn Antigen': 'EX_Tn_antigen(e)',
-    #
-    # 'Amylopectin': 'EX_amylopect900(e)',
-    # 'Amylose': 'EX_amylose300(e)',
-    # 'Arabinan': 'EX_arabinan101(e)',
-    # 'Larch arabinogalactan': 'EX_arabinogal(e)',
-    # 'Arabinoxylan': 'EX_arabinoxyl(e)',
-    # 'Beta-Glucans': 'EX_bglc(e)',
-    # 'Cellulose': 'EX_cellul(e)',
-    # 'Dextran': 'EX_dextran40(e)',
-    # 'Carob galactomannan': 'EX_galmannan(e)',
-    # 'Glycogen, Structure 2': 'EX_glygn2(e)',
-    # 'Glycogen, Structure 4': 'EX_glygn4(e)',
-    # 'Glycogen, Structure 5': 'EX_glygn5(e)',
-    # 'Homogalacturonan': 'EX_homogal(e)',
-    # 'Inulin': 'EX_inulin(e)',
-    # 'Levan': 'EX_levan1000(e)',
-    # 'Lichenin': 'EX_lichn(e)',
-    # 'Laminarin': 'EX_lmn30(e)',
-    # 'Alpha-mannan, yeast': 'EX_mannan(e)',
-    # 'Pectin': 'EX_pect(e)',
-    # 'Pectic galactan (potato)': 'EX_pecticgal(e)',
-    # 'Pullulan': 'EX_pullulan1200(e)',
-    # 'Potato rhamnogalacturonan I': 'EX_rhamnogalurI(e)',
-    # 'Wine rhamnogalacturonan II': 'EX_rhamnogalurII(e)',
-    # 'Starch': 'EX_starch1200(e)',
-    # 'Starch, Structure 1': 'EX_strch1(e)',
-    # 'Xylan': 'EX_xylan(e)',
-    # 'Xyluglucan': 'EX_xyluglc(e)',
-
-
-    # 'Arabinotriose': 'EX_arabttr(e)',
-    # 'Cellobiose': 'EX_cellb(e)',
-    # 'Dextrin': 'EX_dextrin(e)',
-    # 'N,N-diacetylchitobiose': 'EX_chtbs(e)',
-    # 'Kestopentaose': 'EX_kestopt(e)',
-    # 'Kestotetraose': 'EX_kestottr(e)',
-    # 'D-Maltose': 'EX_malt(e)',
-    # 'Maltohexaose': 'EX_malthx(e)',
-    # 'Mannotriose (beta-1,4)': 'EX_mantr(e)',
-    # 'Melibiose': 'EX_melib(e)',
-    # 'Raffinose': 'EX_raffin(e)',
-    # 'Stachyose': 'EX_stys(e)',
-    # 'Sucrose': 'EX_sucr(e)',
-    # 'Trehalose': 'EX_tre(e)',
-    # 'Alpha-Lactose': 'EX_lcts(e)',
     
-    # 'N-Acetylgalactosamine': 'EX_acgal(e)',
-    # 'N-Acetyl-D-glucosamine': 'EX_acgam(e)',
-    # 'N-Acetylneuraminic acid': 'EX_acnam(e)',
-    # 'D-Arabinose': 'EX_arab_D(e)',
-    # 'L-Arabinose': 'EX_arab_L(e)',
-    # 'Deoxyribose': 'EX_drib(e)',
-    # 'D-Fructose': 'EX_fru(e)',
-    # 'L-Fucose': 'EX_fuc_L(e)',
-    # 'Glucosamine': 'EX_gam(e)',
-    # 'Galactose': 'EX_gal(e)',
-    # 'D-Glucose': 'EX_glc_D(e)',
-    # 'L-lyxose': 'EX_lyx_L(e)',
-    # 'D-Mannose': 'EX_man(e)',
-    # 'D-Ribose': 'EX_rib_D(e)',
-    # 'L-Rhamnose': 'EX_rmn(e)',
-    # 'Salicin': 'EX_salcn(e)',
-    # 'D-Xylose': 'EX_xyl_D(e)'
     'Maltotriose': 'EX_malt(e)'
 
 }
@@ -275,15 +175,12 @@ explored_ch = {
 intermediate_metabolites = {
     'Acetic acid': 'EX_ac(e)',
     'Acetaldehyde': 'EX_acald(e)',
-    'Glycerol': 'EX_glyc(e)',
     'Formic acid': 'EX_for(e)',
-    'L-Lactic acid': 'EX_lac_L(e)',
     'Lactate': 'EX_lac_D(e)',
     'Malic acid': 'EX_mal_L(e)',
     'Propionate': 'EX_ppa(e)',
     'Pyruvic acid': 'EX_pyr(e)',
     'Butyrate': 'EX_but(e)',
-    'Methylbutyrate': 'EX_2mbut(e)',
     'Succinate': 'EX_succ(e)',
     'Fumarate': 'EX_fum(e)'
 }
