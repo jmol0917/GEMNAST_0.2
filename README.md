@@ -1,24 +1,30 @@
 # GEMNAST
-The scripts in this repository have been designed to assess three aspects of microbial metabolism separately from corresponding Genome Scale Models (GSMs). The aspects that
-are assessed are a) nutrient requirements (combinatorial_analysis.py), b) nutrient biosynthesis (nutrient_biosynthesis.py) and c) nutrient secretion (nutrient_secretion.py).
-The scripts are compatible with the AGORA and vmh.life reaction and annotation format. For more information visit www.vmh.life
+Computational high throughput platform for the assessment of nutritional and metabolic attributes of microorganisms/cells as represented in genome scale models. 
+GEMNAST was written in the Python coding language (https://www.python.org/downloads/) and requires a compatible interface or IDE to be ran, additional to the instalation of the Python libraries specified within each of the corresponding scripts (e.g. COBRA: https://github.com/opencobra/cobrapy/blob/stable/INSTALL.rst). Installation of Anaconda Distribution is recommended: https://www.anaconda.com/products/distribution
 
-All of the scripts require the same setup:
-1. Provide a directory in the 'path_out' variable. Output files will be saved here.
-2. Provide a directory in the 'path_in' variable from where GSMs will be accessed.
-3. Provide a name for the output folder (which will be automatically created in the specified directory in 'path_out').
-4. Provide a list of nutrient names in at least one of the specified dictionaries. NOTE: There is no need to distribute nutrients by category (sugars, amino acids, cations, etc.) 
-   and new categories (with a dictionary format) can be created and later added to the rich_media variable
-5. Provide a list of nutrients to be explored within the "explored_groups" dictionary following the format provided in the example. NOTE that combinatorial_analysis and
-   nutrient_secretion only work with exchange reactions (reactions with the format EX_xxx[e] where xxx should be replaced with the compound's abbreviation). Providing the
-   compound's abbreviation alone is required for the nutrient_biosynthesis script to work.  
+The scripts are ready to be ran once the correct directory inputs and outputs are specified. Further, download of the corresponding GEM models in SBML format is required and the directory where these files are located should be provided as an input.
 
-Different scripts provide different outputs.
-1. Nutrient requirement analysis generates individual files per analysed GSM and the microbe compilation script is required to compile the information from such files into a
-   single boolean table. Users need to provide a read/destination directory where individual files to be read are saved and where a Boolean compilation table will be saved 
-   (path_out variable in line 26).
-2. Nutrient biosynthesis and secretion both provide the same outputs: a Boolean table containing information from all the assessed GSMs is directly generated from both scripts. 
-   A second 'reordered' boolean table and clustermap is also generated based on strain profile similarity. Finally, two files suggesting potential clusters in the data analysed 
-   are also generated in its own folder.
-   
-For questions or comments please email juan.molina@sydney.edu.au
+To download AGORA SBML files:
+1. Go to https://www.vmh.life/#home
+2. Click on 'Gut Microbiota'
+3. Click on 'Download' at the bar near the TOP of the webpage
+4. Click on 'Microbe collections'
+5. Click on the 'AGORA 1.03 without mucin' version
+6. All the models within this version will be downloaded as part of a .zip file
+
+GEMNAST is divided in three folders. The Essential, Optional and Replaceable Nutrients analyses.
+
+The Essential and Optional analyses are composed of three scripts:
+The essential_nutrients_assessment.py script produces individual files for every examined GSM. The essential_nutrients_compilation.py script can be used 
+to generate a single boolean table with information from all the resulting files.
+
+The optional_nutrients_assessment.py and the optional_nutrients_export.py files already produce a single boolean table with information from all the assessed models and
+therefore additional scripts are not required.
+
+The Replaceable Nutrients Assessment is composed of three scripts:
+The replaceable_nutrients_degradation_assessment.py script produces individual files for every examined GSM. The replaceable_nutrients_degradation_compilation.py
+script can be used to generate a single boolean table that compiles individual model results.
+
+The replaceable_nutrients_degradation_and_intermediate_metabolite_synthesis.py and the replaceable_nutrients_degradation_and_intermediate_metabolite_export.py scripts produce boolean tables with information from every model assessed.
+
+For questions or comments please email
