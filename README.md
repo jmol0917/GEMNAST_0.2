@@ -1,4 +1,4 @@
-# gsm_analysis
+# GEMNAST
 The scripts in this repository have been designed to assess three aspects of microbial metabolism separately from corresponding Genome Scale Models (GSMs). The aspects that
 are assessed are a) nutrient requirements (combinatorial_analysis.py), b) nutrient biosynthesis (nutrient_biosynthesis.py) and c) nutrient secretion (nutrient_secretion.py).
 The scripts are compatible with the AGORA and vmh.life reaction and annotation format. For more information visit www.vmh.life
