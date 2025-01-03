@@ -14,15 +14,16 @@ To download AGORA SBML files:
 
 GEMNAST is divided in three folders. The Essential, Optional and Replaceable Nutrients analyses.
 
-The Essential and Optional analyses are composed of three scripts:
-The essential_nutrients_assessment.py script produces individual files for every examined GSM. The essential_nutrients_compilation.py script can be used 
-to generate a single boolean table with information from all the resulting files.
+The Essential Nutrient analysis:
+# Objective: Infer essential nutrients in a set of GEMs from a defined set of molecules
+The essential_nutrients_assessment.py script produces individual files for every examined GEM. The essential_nutrients_compilation.py script can be used 
+to generate a single boolean table with information from all the original files.
 
 The optional_nutrients_assessment.py and the optional_nutrients_export.py files already produce a single boolean table with information from all the assessed models and
 therefore additional scripts are not required.
 
 The Replaceable Nutrients Assessment is composed of three scripts:
-The replaceable_nutrients_degradation_assessment.py script produces individual files for every examined GSM. The replaceable_nutrients_degradation_compilation.py
+The replaceable_nutrients_degradation_assessment.py script produces individual files for every examined GEM. The replaceable_nutrients_degradation_compilation.py
 script can be used to generate a single boolean table that compiles individual model results.
 
 The replaceable_nutrients_degradation_and_intermediate_metabolite_synthesis.py and the replaceable_nutrients_degradation_and_intermediate_metabolite_export.py scripts produce boolean tables with information from every model assessed.
