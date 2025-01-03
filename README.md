@@ -15,7 +15,7 @@ To download AGORA SBML files:
 GEMNAST is divided in three folders. The Essential, Optional and Replaceable Nutrients analyses.
 
 The Essential Nutrient analysis:
-# Objective: Infer essential nutrients in a set of GEMs from a defined set of molecules
+## Objective: Infer essential nutrients in a set of GEMs from a defined set of molecules
 The essential_nutrients_assessment.py script produces individual files for every examined GEM. The essential_nutrients_compilation.py script can be used 
 to generate a single boolean table with information from all the original files.
 
