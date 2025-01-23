@@ -151,44 +151,6 @@ other = {
 }
 
 experimental_carbon_sources = {
-  # Proteoglycans
-    'Core 2': {'Core 2': 'EX_core2(e)'},
-    'Core 3': {'Core 3': 'EX_core3(e)'},
-    'Core 4': {'Core 4': 'EX_core4(e)'},
-    'Core 5': {'Core 5': 'EX_core5(e)'},
-    'Core 6': {'Core 6': 'EX_core6(e)'},
-    'Core 7': {'Core 7': 'EX_core7(e)'},
-    'Core 8': {'Core 8': 'EX_core8(e)'},
-    'Chondroitin Sulfate A Proteoglycan': {'Chondroitin Sulfate A Proteoglycan': 'EX_cspg_a(e)'},
-    'Dimer GalNAc4S-GlcA': {'Dimer GalNAc4S-GlcA': 'EX_cspg_a_degr(e)'},
-    'Chondroitin Sulfate B Proteoglycan': {'Chondroitin Sulfate B Proteoglycan': 'EX_cspg_b(e)'},
-    'Dimer GalNAc4S-IdoA2S': {'Dimer GalNAc4S-IdoA2S': 'EX_cspg_b_degr(e)'},
-    'Chondroitin Sulfate C Proteoglycan': {'Chondroitin Sulfate C Proteoglycan': 'EX_cspg_c(e)'},
-    'Dimer GalNAc6S-GlcA': {'Dimer GalNAc6S-GlcA': 'EX_cspg_c_degr(e)'},
-    'Disialyl-T Antigen': {'Disialyl-T Antigen': 'EX_dsT_antigen(e)'},
-    'GlcNac-Alpha-1,4-Core 1': {'GlcNac-Alpha-1,4-Core 1': 'EX_gncore1(e)'},
-    'GlcNac-Alpha-1,4-Core 2': {'GlcNac-Alpha-1,4-Core 2': 'EX_gncore2(e)'},
-    'Hyaluronic acid': {'Hyaluronic acid': 'EX_ha(e)'},
-    'Heparan Sulfate Proteoglycan': {'Heparan Sulfate Proteoglycan': 'EX_hspg(e)'},
-    'Product 1 HEPARL1_e': {'Product 1 HEPARL1_e': 'EX_hspg_degr_1(e)'},
-    'Product AS3TASE_HS2': {'Product AS3TASE_HS2': 'EX_hspg_degr_10(e)'},
-    'Product GAM2STASE_HS3': {'Product GAM2STASE_HS3': 'EX_hspg_degr_11(e)'},
-    'Product GLCNACASE_HS2': {'Product GLCNACASE_HS2': 'EX_hspg_degr_12(e)'},
-    'Product GLCAASE_HS': {'Product GLCAASE_HS': 'EX_hspg_degr_13(e)'},
-    'Product GLCNACASE_HS3': {'Product GLCNACASE_HS3': 'EX_hspg_degr_14(e)'},
-    'Product IDOURASE_HS3': {'Product IDOURASE_HS3': 'EX_hspg_degr_15(e)'},
-    'Product 2 HEPARL1_e': {'Product 2 HEPARL1_e': 'EX_hspg_degr_2(e)'},
-    'Product IDOURASE_HS1': {'Product IDOURASE_HS1': 'EX_hspg_degr_3(e)'},
-    'Product AS6TASE_HS1': {'Product AS6TASE_HS1': 'EX_hspg_degr_4(e)'},
-    'Product AS3TASE_HS1': {'Product AS3TASE_HS1': 'EX_hspg_degr_5(e)'},
-    'Product GAM2STASE_HS2': {'Product GAM2STASE_HS2': 'EX_hspg_degr_6(e)'},
-    'Product IS2TASE_HS1': {'Product IS2TASE_HS1': 'EX_hspg_degr_7(e)'},
-    'Product IDOURASE_HS2': {'Product IDOURASE_HS2': 'EX_hspg_degr_8(e)'},
-    'Product AS6TASE_HS2': {'Product AS6TASE_HS2': 'EX_hspg_degr_9(e)'},
-    'Sialyl-T Antigen': {'Sialyl-T Antigen': 'EX_sT_antigen(e)'},
-    'Sialyl-Tn Antigen': {'Sialyl-Tn Antigen': 'EX_sTn_antigen(e)'},
-    'T-Antigen (Core 1)': {'T-Antigen (Core 1)': 'EX_T_antigen(e)'},
-    'Tn Antigen': {'Tn Antigen': 'EX_Tn_antigen(e)'},
   # Polysaccharides
     'Amylopectin': {'Amylopectin': 'EX_amylopect900(e)'},
     'Amylose': {'Amylose': 'EX_amylose300(e)'},
@@ -249,18 +211,6 @@ experimental_carbon_sources = {
     'L-Rhamnose': {'L-Rhamnose': 'EX_rmn(e)'},
     'Salicin': {'Salicin': 'EX_salcn(e)'},
     'D-Xylose': {'D-Xylose': 'EX_xyl_D(e)'},
-  # Intermediate metabolites
-    'Acetic acid': {'Acetic acid': 'EX_ac(e)'},
-    'Acetaldehyde': {'Acetaldehyde': 'EX_acald(e)'},
-    'Formic acid': {'Formic acid': 'EX_for(e)'},
-    'L-Lactic acid': {'L-Lactic acid': 'EX_lac_L(e)'},
-    'Malic acid': {'Malic acid': 'EX_mal_L(e)'},
-    'Propionate': {'Propionate': 'EX_ppa(e)'},
-    'Pyruvic acid': {'Pyruvic acid': 'EX_pyr(e)'},
-    'Butyrate': {'Butyrate': 'EX_but(e)'},
-    'Succinate': {'Succinate': 'EX_succ(e)'},
-    'Fumarate': {'Fumarate': 'EX_fum(e)'},
-    'Ethanol': {'Ethanol': 'EX_etoh(e)'}
 }
 
 nutrient_qtt = 100
